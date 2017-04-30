@@ -2,49 +2,164 @@
 <html>
 
 <head>
-    <title>Google Analytics Repor</title>
+    <link href="style.css" type="text/css" rel="stylesheet">
+    <title>Google Analytics Report</title>
     <meta charset="utf-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <title>ECharts</title>
     <!-- Use echarts.js -->
     <script src="echarts.min.js"></script>
     <script src="map.js"></script>
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <style>
-        a:hover {
-            text-decoration: none;
-            color: limegreen;
-        }
-    </style>
 </head>
 
 <body>
     <div class="page-header">
-        <h1 style="color:blueviolet;font-family: Georgia, 'Times New Roman', Times, serif">Google Analytics Report</h1>
-        <h4 style="color:firebrick;font-family:Arial, Helvetica, sans-serif">by Eva Lau JOUR2106 Homework 6</h4>
+        <h1>Google Analytics Report</h1>
+        <h4>by Eva Lau JOUR2106 Homework 6</h4>
     </div>
     <div class="icon">
         <img src="https://scontent-hkg3-1.xx.fbcdn.net/v/t1.0-9/13592820_1615401152106319_811791061275425396_n.jpg?oh=24a2dd829d26d4cb44bffd8e48880fa5&oe=597505AE" style="width:120px;height:120px">
     </div>
     <div class="intro">
-        <h4 style="color:blueviolet;font-family:Arial, Helvetica, sans-serif">My work
+        <h4>My work
         </h4>
-        <h5 style="color:blueviolet;font-family:Arial, Helvetica, sans-serif">Testing Period: Apr.1-28,2017
+        <h5>Testing Period: Apr.1-10, 2017
         </h5>
-        <ul>
-            <li>
-                <a href="https://evalau1996.github.io/" ;target=_ blank ">Personal Website</a></li>
-     <li><a href="https://evalau1996.github.io/homework1/ " ;target=_ blank ">Homework1</a>
-            </li>
-            <li><a href="https://evalau1996.github.io/homework3/" ;target=_ blank ">homework3</a></li>
-     <li><a href="https://evalau1996.github.io/homework4/ " ;target=_ blank ">Homework4</a>
-            </li>
-            <li>
-                <a href="https://evalau1996.github.io/homework1/" ;target=_ blank ">Homework5</a></li>
- </ul>
+        <a href="https://evalau1996.github.io">Personal Website</a>
+        <a href="https://evalau1996.github.io/homework1">homework1</a>
+        <a href="https://evalau1996.github.io/homework3">homework3</a>
+        <a href="https://evalau1996.github.io/homework4">homework4</a>
+        <a href="https://evalau1996.github.io/homework5">homework5</a>
+        <br> <br> <br>
     </div>
-<div class="footer ">
-
-</div>
+    <div id="main1" style="width:600px;height:400px;"></div>
+    <script type="text/javascript">
+        //基於準備好的dom，初始化echarts實例
+        var myChart1 = echarts.init(document.getElementById('main1'));
+        //指定圖表的配置項和數據
+        option = {
+            title: {
+                text: 'Vistors'
+            },
+            tooltip: {
+                trigger: 'axis'
+            },
+            legend: {
+                data: ['Personal Website', 'HW1', 'HW3', 'HW4', 'HW5']
+            },
+            grid: {
+                left: '3%',
+                right: '4%',
+                bottom: '3%',
+                containLabel: true
+            },
+            toolbox: {
+                feature: {
+                    saveAsImage: {}
+                }
+            },
+            xAxis: {
+                type: 'category',
+                boundaryGap: false,
+                data: ['Apr1', 'Apr2', 'Apr3', 'Apr4', 'Apr5', 'Apr6', 'Apr7', 'Apr8', 'Apr9', 'Apr10']
+            },
+            yAxis: {
+                type: 'value'
+            },
+            series: [{
+                name: 'Personal Website',
+                type: 'line',
+                stack: '总量',
+                data: [55, 1, 5, 0, 0, 0, 0, 3, 3, 4]
+            }, {
+                name: 'HW1',
+                type: 'line',
+                stack: '总量',
+                data: [20, 0, 2, 0, 1, 0, 0, 1, 0, 0]
+            }, {
+                name: 'HW3',
+                type: 'line',
+                stack: '总量',
+                data: [11, 0, 0, 0, 0, 0, 0, 1, 0, 0]
+            }, {
+                name: 'HW4',
+                type: 'line',
+                stack: '总量',
+                data: [9, 1, 0, 0, 1, 0, 0, 1, 0, 0]
+            }, {
+                name: 'HW5',
+                type: 'line',
+                stack: '总量',
+                data: [16, 0, 1, 0, 0, 0, 0, 3, 0, 0]
+            }]
+        };
+        //使用剛指定的配置項和數據顯示圖表
+        myChart1.setOption(option);
+    </script>
+    <br>
+    <div id="main2" style="width:600px;height:400px;"></div>
+    <script type="text/javascript">
+        //基於準備好的dom，初始化echarts實例
+        var myChart2 = echarts.init(document.getElementById('main2'));
+        //指定圖表的配置項和數據
+        option = {
+            tooltip: {
+                trigger: 'item',
+                formatter: "{a} <br/>{b}: {c} ({d}%)"
+            },
+            legend: {
+                orient: 'vertical',
+                x: 'left',
+                data: ['Hong Kong', 'Shanghai', 'Others', 'Unknown']
+            },
+            series: [{
+                name: 'Hong Kong',
+                type: 'pie',
+                radius: ['50%', '70%'],
+                avoidLabelOverlap: false,
+                label: {
+                    normal: {
+                        show: false,
+                        position: 'center'
+                    },
+                    emphasis: {
+                        show: true,
+                        textStyle: {
+                            fontSize: '30',
+                            fontWeight: 'bold'
+                        }
+                    }
+                },
+                labelLine: {
+                    normal: {
+                        show: false
+                    }
+                },
+                data: [{
+                    value: 94,
+                    name: 'Hong Kong'
+                }, {
+                    value: 13,
+                    name: 'Shanghai'
+                }, {
+                    value: 17,
+                    name: 'Others'
+                }, {
+                    value: 3,
+                    name: 'Unknown'
+                }]
+            }]
+        };
+        //使用剛指定的配置項和數據顯示圖表
+        myChart2.setOption(option);
+    </script>
 </body>
 
 </html>

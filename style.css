@@ -1,0 +1,19 @@
+html,
+body {
+    background: greenyellow;
+    text-align: center;
+}
+
+a:hover {
+    text-decoration: none;
+    color: limegreen;
+}
+
+h1 {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: blueviolet;
+}
+
+ul {
+    color: blue;
+}
